@@ -1,0 +1,8 @@
+path: /Users/chananonkanunghet/Desktop/Work/KMITL/Year4/Team_Project_02/7-11_Object_Detection/data
+train: images/train
+val: images/train
+
+# Classes
+names:
+  0: HamCheeseSandwich
+  1: MirindaOrange
