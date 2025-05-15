@@ -6,3 +6,5 @@ val: images/train
 names:
   0: HamCheeseSandwich
   1: MirindaOrange
+  2: BirdyEspressoGreenCan
+  3: BirdyRobustaRedCan
