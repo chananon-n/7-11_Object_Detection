@@ -4,6 +4,3 @@ from ultralytics import YOLO
 model = YOLO("yolo11n.pt")
 
 results = model.train(data="config.yaml", epochs=100,patience=20)
-
-# Export the model to TFLite format
-model.export(format="tflite")  # creates 'yolo11n_float32.tflite'

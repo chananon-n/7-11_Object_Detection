@@ -24,7 +24,7 @@ while True:
     annotated_frame = results[0].plot()
 
     # Display the frame
-    cv2.imshow("YOLOv8 Detection", annotated_frame)
+    cv2.imshow("YOLOv11 Detection", annotated_frame)
 
     # Press 'q' to quit
     if cv2.waitKey(1) & 0xFF == ord('q'):
