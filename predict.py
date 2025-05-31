@@ -2,34 +2,23 @@ import cv2
 from ultralytics import YOLO
 
 # Load the trained model
-model = YOLO("runs/detect/train/weights/best.pt")  # Replace with your model path if different
+model = YOLO("runs/detect/train/weights/best.pt")  # Update path if needed
 
-# Open the webcam (0 is default camera)
-cap = cv2.VideoCapture(0)
+# Load an image
+image_path = "/Users/chananonkanunghet/Desktop/IMG_7007.jpeg"  # Replace with your image file
+image = cv2.imread(image_path)
 
-if not cap.isOpened():
-    print("Error: Could not open webcam.")
+if image is None:
+    print(f"Error: Could not load image from {image_path}")
     exit()
 
-# Loop to read frames from the webcam
-while True:
-    ret, frame = cap.read()
-    if not ret:
-        break
+# Run object detection
+results = model(image)
 
-    # Run object detection
-    results = model(frame)
+# Visualize the results
+annotated_image = results[0].plot()
 
-    # Visualize the results on the frame
-    annotated_frame = results[0].plot()
-
-    # Display the frame
-    cv2.imshow("YOLOv11 Detection", annotated_frame)
-
-    # Press 'q' to quit
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
-
-# Release resources
-cap.release()
+# Show the image
+cv2.imshow("YOLOv8 Detection", annotated_image)
+cv2.waitKey(0)
 cv2.destroyAllWindows()
